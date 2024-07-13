@@ -45,15 +45,15 @@ function App() {
   useEffect(() => { 
     let intervel;
     if(isConnected) {
-      // intervel = setInterval(() => {
+      intervel = setInterval(() => {
+        sendJsonMessage(send)
+      }, 1000);
+      // intervel = setTimeout(() => {
       //   sendJsonMessage(send)
       // }, 1000);
-      intervel = setTimeout(() => {
-        sendJsonMessage(send)   
-      }, 1000);
     }
-    // return () => clearInterval(intervel)
-    return () => clearTimeout(intervel)
+    return () => clearInterval(intervel)
+    // return () => clearTimeout(intervel)
   }, [isConnected, send])
 
   useEffect(() => {
